@@ -1,31 +1,119 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Sistema de Reservas - Barbería</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Clínica SaludPlus | Servicios Médicos</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <h1>Sistema de Reservas - BarberShop 💈</h1>
+<header class="top-bar">
+    <div class="logo-area">
+        <h1>🏥 SaludPlus</h1>
+        <p>Atención médica integral · Confianza y bienestar</p>
+    </div>
+    <!-- Botón reservación en línea (esquina superior derecha) -->
+    <button class="btn-reserva" id="openReservaBtn">
+        📅 Reservación en línea
+        <span>→</span>
+    </button>
+</header>
 
-  <h2>Servicios</h2>
-  <button onclick="seleccionarServicio('Corte')">Corte</button>
-  <button onclick="seleccionarServicio('Barba')">Barba</button>
+<main class="container">
+    <div class="hero">
+        <h2>Servicios médicos disponibles</h2>
+        <p>Explore nuestros servicios de atención médica general y encuentre el cuidado que necesita.</p>
+    </div>
 
-  <h2>Barberos</h2>
-  <button onclick="seleccionarBarbero('Carlos')">Carlos</button>
-  <button onclick="seleccionarBarbero('Luis')">Luis</button>
+    <!-- Grid de servicios -->
+    <div class="servicios-grid">
+        <!-- Control de embarazo -->
+        <div class="card-servicio">
+            <div class="icono">🤰🏽</div>
+            <h3>Control de embarazo</h3>
+            <p>Seguimiento del embarazo para garantizar la salud de la madre y el bebé. Ecografías, chequeos mensuales y asesoría nutricional.</p>
+        </div>
+        <!-- Planificación familiar -->
+        <div class="card-servicio">
+            <div class="icono">👨‍👩‍👧‍👦</div>
+            <h3>Planificación familiar</h3>
+            <p>Asesoramiento y provisión de métodos anticonceptivos para planificar la familia con confianza y privacidad.</p>
+        </div>
+        <!-- Nebulización sin medicamentos -->
+        <div class="card-servicio">
+            <div class="icono">💨</div>
+            <h3>Nebulización sin medicamentos</h3>
+            <p>Administración de vapor o solución salina para aliviar afecciones respiratorias leves de forma natural y segura.</p>
+        </div>
+        <!-- Consulta general adicional -->
+        <div class="card-servicio">
+            <div class="icono">🩺</div>
+            <h3>Consulta general</h3>
+            <p>Atención médica primaria, chequeos preventivos y diagnóstico oportuno. Optimizamos tu tiempo con sistema de reservas.</p>
+        </div>
+    </div>
 
-  <h2>Horarios disponibles</h2>
-  <button onclick="reservar('9:00 AM')">9:00 AM</button>
-  <button onclick="reservar('10:00 AM')">10:00 AM</button>
-  <button onclick="reservar('11:00 AM')">11:00 AM</button>
+    <!-- Sección que explica el valor del software de reservaciones -->
+    <div class="info-reservas">
+        <div class="texto-soft">
+            <h3>✨ Reserva en línea · adiós a las esperas por WhatsApp</h3>
+            <p>Muchas empresas aún dependen de WhatsApp, donde los mensajes se pierden o no hay respuesta rápida. Nuestro <strong>Software de Reservaciones</strong> agiliza la atención, evita confusiones y mejora la satisfacción del paciente.</p>
+        </div>
+        <div class="demo-badge">
+            <span>⚡ +40% eficiencia</span>
+            <small>respuesta inmediata 24/7</small>
+        </div>
+    </div>
+</main>
 
-  <h2>Resumen de cita</h2>
-  <p id="resumen">No has seleccionado nada</p>
+<footer>
+    <p>© 2026 Clínica SaludPlus – Transformando la atención médica con tecnología confiable. <br> Sistema de reservaciones en línea | Gestión inteligente</p>
+</footer>
 
-  <script src="script.js"></script>
+<!-- Modal reservación en línea -->
+<div id="modalReserva" class="modal-overlay">
+    <div class="modal-contenido">
+        <h3>📋 Reservar cita médica
+            <button class="close-modal" id="closeModalBtn">&times;</button>
+        </h3>
+        <p style="margin-bottom: 1rem; color:#2c6e5a;">Complete el formulario y recibirá confirmación al instante (demo).</p>
+        <form id="formReserva">
+            <div class="form-group">
+                <label>Nombre completo *</label>
+                <input type="text" id="nombre" placeholder="Ej. Ana María López" required>
+            </div>
+            <div class="form-group">
+                <label>Teléfono / WhatsApp</label>
+                <input type="tel" id="telefono" placeholder="+502 1234 5678">
+            </div>
+            <div class="form-group">
+                <label>Correo electrónico *</label>
+                <input type="email" id="email" placeholder="paciente@ejemplo.com" required>
+            </div>
+            <div class="form-group">
+                <label>Servicio requerido</label>
+                <select id="servicioSelect">
+                    <option value="Control de embarazo">Control de embarazo</option>
+                    <option value="Planificación familiar">Planificación familiar</option>
+                    <option value="Nebulización sin medicamentos">Nebulización sin medicamentos</option>
+                    <option value="Consulta general">Consulta general</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Fecha preferente</label>
+                <input type="date" id="fechaCita" required>
+            </div>
+            <div class="form-group">
+                <label>Mensaje adicional (opcional)</label>
+                <input type="text" id="mensaje" placeholder="Ej: horario después de las 4pm">
+            </div>
+            <button type="submit" class="btn-submit">Solicitar reservación ✅</button>
+            <div id="mensajeFeedback" style="margin-top: 12px;"></div>
+        </form>
+    </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
