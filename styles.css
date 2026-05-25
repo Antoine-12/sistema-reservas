@@ -1,0 +1,16 @@
+
+body {
+  font-family: Arial;
+  padding: 20px;
+}
+
+h1 {
+  color: #333;
+}
+
+button {
+  margin: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+``
