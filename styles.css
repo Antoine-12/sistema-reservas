@@ -1,16 +1,365 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
-  font-family: Arial;
-  padding: 20px;
+    font-family: system-ui, 'Segoe UI', 'Inter', 'Helvetica Neue', sans-serif;
+    background: linear-gradient(145deg, #f4f9ff 0%, #e9f0fa 100%);
+    color: #1a2c3e;
+    line-height: 1.5;
+    scroll-behavior: smooth;
 }
 
-h1 {
-  color: #333;
+/* header con botón flotante en esquina superior derecha */
+.top-bar {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-bottom: 1px solid rgba(64, 128, 128, 0.15);
 }
 
-button {
-  margin: 5px;
-  padding: 10px;
-  cursor: pointer;
+.logo-area h1 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #1f6e8c, #2c9e6e);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: -0.3px;
 }
-``
+
+.logo-area p {
+    font-size: 0.85rem;
+    color: #4a627a;
+    font-weight: 500;
+}
+
+.btn-reserva {
+    background: linear-gradient(105deg, #1e7e5e, #0f5c45);
+    border: none;
+    padding: 0.8rem 1.8rem;
+    border-radius: 60px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 8px 18px rgba(0, 80, 60, 0.2);
+    letter-spacing: 0.3px;
+}
+
+.btn-reserva:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(105deg, #239b73, #136e52);
+    box-shadow: 0 12px 22px rgba(0, 120, 80, 0.3);
+}
+
+.btn-reserva:active {
+    transform: translateY(2px);
+}
+
+/* contenedor principal */
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 2rem 2rem 4rem;
+}
+
+/* hero / intro */
+.hero {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(145deg, #1f4870, #1e6e5c);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 0.8rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #2c4b6e;
+    max-width: 720px;
+    margin: 0 auto;
+    background: rgba(255,255,240,0.6);
+    padding: 0.5rem 1.2rem;
+    border-radius: 60px;
+    backdrop-filter: blur(2px);
+}
+
+/* grid de servicios médicos */
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0 3rem;
+}
+
+.card-servicio {
+    background: white;
+    border-radius: 2rem;
+    padding: 1.8rem 1.5rem;
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    border: 1px solid rgba(140, 190, 170, 0.3);
+    backdrop-filter: blur(0px);
+}
+
+.card-servicio:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 28px 40px -16px rgba(0, 80, 70, 0.2);
+    border-color: #9ad0b5;
+}
+
+.icono {
+    font-size: 2.8rem;
+    margin-bottom: 1.2rem;
+    display: inline-block;
+    background: #e1f5ed;
+    padding: 0.7rem;
+    border-radius: 2rem;
+}
+
+.card-servicio h3 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #1c5e4c;
+    margin-bottom: 0.75rem;
+}
+
+.card-servicio p {
+    color: #335;
+    font-size: 1rem;
+    line-height: 1.45;
+}
+
+/* sección adicional: beneficios del software */
+.info-reservas {
+    background: linear-gradient(120deg, #ffffff, #f8fefb);
+    border-radius: 2.5rem;
+    padding: 2rem 2rem 2rem 2rem;
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+    border: 1px solid #ceeedd;
+}
+
+.texto-soft {
+    flex: 2;
+}
+
+.texto-soft h3 {
+    font-size: 1.8rem;
+    color: #115e4a;
+    margin-bottom: 0.5rem;
+}
+
+.texto-soft p {
+    font-size: 1.05rem;
+    color: #2b5a4a;
+    max-width: 500px;
+}
+
+.demo-badge {
+    flex: 1;
+    background: #e5f5ef;
+    padding: 1rem 1.8rem;
+    border-radius: 2rem;
+    text-align: center;
+    font-weight: 600;
+    color: #115e4a;
+}
+
+.demo-badge span {
+    font-size: 2rem;
+    display: block;
+}
+
+footer {
+    text-align: center;
+    margin-top: 4rem;
+    padding: 1.5rem;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    color: #4f6f7f;
+    font-size: 0.85rem;
+}
+
+/* modal (reservación en línea - formulario simple) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 20, 15, 0.7);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s ease;
+}
+
+.modal-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-contenido {
+    background: white;
+    max-width: 500px;
+    width: 90%;
+    border-radius: 2rem;
+    padding: 1.5rem 2rem 2rem;
+    position: relative;
+    box-shadow: 0 30px 40px rgba(0, 0, 0, 0.3);
+    animation: modalEntrada 0.25s ease-out;
+}
+
+@keyframes modalEntrada {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-contenido h3 {
+    font-size: 1.8rem;
+    color: #1f6e5c;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-modal {
+    font-size: 1.8rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-weight: bold;
+    color: #7f8c8d;
+    transition: 0.2s;
+}
+
+.close-modal:hover {
+    color: #c0392b;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: #1e4a3a;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border-radius: 1rem;
+    border: 1px solid #cbdcd2;
+    font-size: 1rem;
+    background: #fefefe;
+    transition: 0.2s;
+}
+
+.form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: #2c9e6e;
+    box-shadow: 0 0 0 3px rgba(44, 158, 110, 0.2);
+}
+
+.btn-submit {
+    background: #1f6e5c;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 0.9rem;
+    border-radius: 2rem;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 0.5rem;
+}
+
+.btn-submit:hover {
+    background: #0f5545;
+}
+
+.mensaje-exito {
+    background: #dff9e6;
+    color: #0a5c44;
+    padding: 0.8rem;
+    border-radius: 1rem;
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+.mensaje-error {
+    background: #ffe0db;
+    color: #b13e3e;
+    padding: 0.8rem;
+    border-radius: 1rem;
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+/* responsive */
+@media (max-width: 680px) {
+    .top-bar {
+        padding: 0.8rem 1.2rem;
+    }
+    .logo-area h1 {
+        font-size: 1.3rem;
+    }
+    .btn-reserva {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+    .container {
+        padding: 1rem 1rem 2rem;
+    }
+    .info-reservas {
+        flex-direction: column;
+        text-align: center;
+    }
+}
