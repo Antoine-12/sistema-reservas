@@ -1,1 +1,31 @@
-<h1>Hola mundo</h1>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema de Reservas - Barbería</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <h1>Sistema de Reservas - BarberShop 💈</h1>
+
+  <h2>Servicios</h2>
+  <button onclick="seleccionarServicio('Corte')">Corte</button>
+  <button onclick="seleccionarServicio('Barba')">Barba</button>
+
+  <h2>Barberos</h2>
+  <button onclick="seleccionarBarbero('Carlos')">Carlos</button>
+  <button onclick="seleccionarBarbero('Luis')">Luis</button>
+
+  <h2>Horarios disponibles</h2>
+  <button onclick="reservar('9:00 AM')">9:00 AM</button>
+  <button onclick="reservar('10:00 AM')">10:00 AM</button>
+  <button onclick="reservar('11:00 AM')">11:00 AM</button>
+
+  <h2>Resumen de cita</h2>
+  <p id="resumen">No has seleccionado nada</p>
+
+  <script src="script.js"></script>
+</body>
+</html>
